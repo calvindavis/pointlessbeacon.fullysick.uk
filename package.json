@@ -1,0 +1,31 @@
+{
+  "name": "pointlessbeacon.fullysick.uk",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "preview": "npm run build && wrangler dev",
+    "format": "prettier -w .",
+    "deploy": "npm run build && wrangler deploy"
+  },
+  "dependencies": {
+    "@lit-labs/router": "^0.1.4",
+    "@lit/task": "^1.0.3",
+    "@supabase/supabase-js": "^2.110.4",
+    "lit": "^3.3.3"
+  },
+  "devDependencies": {
+    "@cloudflare/vite-plugin": "^1.45.0",
+    "@types/node": "^26.1.1",
+    "prettier": "3.9.5",
+    "typescript": "~6.0.2",
+    "vite": "^8.1.1",
+    "wrangler": "^4.111.0"
+  },
+  "allowScripts": {
+    "esbuild@0.28.1": true,
+    "workerd@1.20260722.1": true
+  }
+}
