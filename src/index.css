@@ -1,0 +1,20 @@
+:root {
+  --color-black: #312f28;
+  --color-white: #b0aea7;
+
+  --color-background: var(--color-white);
+  --color-foreground: var(--color-black);
+
+  @media (prefers-color-scheme: dark) {
+    --color-background: var(--color-black);
+    --color-foreground: var(--color-white);
+  }
+}
+
+html {
+  background-color: var(--color-background);
+  color: var(--color-foreground);
+  font-family: "Jacquarda Bastarda 9", serif;
+  font-style: normal;
+  font-weight: 400;
+}

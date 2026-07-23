@@ -1,4 +1,4 @@
-import { LitElement, html } from "lit";
+import { LitElement, css, html } from "lit";
 import { customElement } from "lit/decorators.js";
 
 @customElement("app-header")
@@ -10,6 +10,13 @@ export class AppHeader extends LitElement {
       </header>
     `;
   }
+
+  static styles = css`
+    h1 {
+      font-size: 2.5rem;
+      font-weight: inherit;
+    }
+  `;
 }
 
 declare global {

@@ -1,12 +1,24 @@
-import { LitElement, html } from "lit";
+import { LitElement, css, html } from "lit";
 import { customElement } from "lit/decorators.js";
-import { Task } from "@lit/task";
+import { loadUser } from "@/services/userService";
+import { formatRandomGreeting } from "@/services/greetingService";
 
 @customElement("home-page")
 export class HomePage extends LitElement {
   render() {
-    return html`<h2>Home</h2>`;
+    const user = loadUser();
+
+    return html`
+      <h2>${formatRandomGreeting(user.name)}</h2>
+      <pre>${JSON.stringify(user, undefined, 4)}</pre>
+    `;
   }
+
+  static styles = css`
+    h2 {
+      font-weight: inherit;
+    }
+  `;
 }
 
 declare global {
