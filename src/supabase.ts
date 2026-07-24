@@ -42,7 +42,7 @@ export function subscribeToActiveBeacons(handler: () => void) {
     .on(
       "postgres_changes",
       { event: "*", schema: "public", table: "users" },
-      (payload) => {
+      () => {
         handler();
       },
     )

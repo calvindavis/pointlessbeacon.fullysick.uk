@@ -14,7 +14,7 @@ export class HomePage extends LitElement {
   private _user: User = loadUser();
 
   private _getValue(event: Event) {
-    const target = event.target;
+    const target = event.target as any;
 
     if (target?.type === "number") {
       return Number(target.value);
@@ -24,7 +24,7 @@ export class HomePage extends LitElement {
       return Boolean(target.checked);
     }
 
-    return target.value as string;
+    return target?.value as string;
   }
 
   private _updateUser(patch: Partial<User>) {
@@ -33,7 +33,7 @@ export class HomePage extends LitElement {
   }
 
   private _handleUserUpdate(e: InputEvent) {
-    const id = e?.target?.id;
+    const id = (e.target as any).id;
     const value = this._getValue(e);
 
     this._updateUser({ [id]: value });
