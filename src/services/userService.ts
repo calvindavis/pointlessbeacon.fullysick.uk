@@ -1,6 +1,6 @@
 import type { User } from "@/types/User";
 
-const USER_KEY = "pointlessBeacon:user";
+const USER_KEY = "pointless_beacon:user";
 
 export function generateUserId(): string {
   return crypto.randomUUID();
@@ -9,8 +9,10 @@ export function generateUserId(): string {
 export function createUser(): User {
   const user: User = {
     id: generateUserId(),
-    level: 1,
     name: "",
+    level: 1,
+    location: "",
+    using_mic: false,
   };
 
   saveUser(user);
