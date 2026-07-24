@@ -5,12 +5,7 @@ import { repeat } from "lit/directives/repeat.js";
 import { loadUser, saveUser } from "@/services/userService";
 import { formatRandomGreeting } from "@/services/greetingService";
 import type { User } from "@/types/User";
-import {
-  BEACON_DURATION_MS,
-  LEVEL_MAX,
-  LEVEL_MIN,
-  LOCATIONS,
-} from "@/constants";
+import { LEVEL_MAX, LEVEL_MIN, LOCATIONS } from "@/constants";
 import { lightBeacon } from "@/supabase";
 
 @customElement("home-page")
@@ -65,6 +60,7 @@ export class HomePage extends LitElement {
 
   render() {
     return html`
+      <active-beacons></active-beacons>
       <h2>${formatRandomGreeting(this._user.name)}</h2>
       <pre>${JSON.stringify(this._user, undefined, 4)}</pre>
 

@@ -22,3 +22,29 @@ export async function lightBeacon(user: User) {
 
   return user;
 }
+
+export async function getActiveBeacons(): Promise<User[]> {
+  const { data: users, error } = await client
+    .from("users")
+    .select("*")
+    .gt("beacon_expires_at", new Date().toISOString());
+
+  if (error) {
+    console.error(error);
+  }
+
+  return users as User[];
+}
+
+export function subscribeToActiveBeacons(handler: () => void) {
+  client
+    .channel("public:users")
+    .on(
+      "postgres_changes",
+      { event: "*", schema: "public", table: "users" },
+      (payload) => {
+        handler();
+      },
+    )
+    .subscribe();
+}

@@ -1,3 +1,5 @@
+import "@/active-beacons";
+import "@/beacons-table";
 import "@/app-header";
 import "@/pages/error-page";
 import "@/pages/home-page";
